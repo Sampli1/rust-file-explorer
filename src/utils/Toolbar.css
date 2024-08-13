@@ -1,0 +1,21 @@
+.h {
+  background-color: #00233b; 
+  color: white; 
+  padding: 5px 5px; 
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.h:hover {
+  background-color: #002741; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left {
+    width: 30px;
+}
