@@ -9,7 +9,7 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             explorer::file_explorer::list_folders,
             explorer::file_explorer::find,
-            explorer::file_explorer::create_folder
+            explorer::file_explorer::create_folder,
             ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

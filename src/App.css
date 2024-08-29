@@ -149,3 +149,21 @@ button {
     background-color: #0f0f0f69;
   }
 }
+
+.loading {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+}
+
+
+.path {
+  top: 5%;
+  display: block;
+  position: relative;
+  background-color: gray;
+  height: 20px;
+  width: 100%;
+}

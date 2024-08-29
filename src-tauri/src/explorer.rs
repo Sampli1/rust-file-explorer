@@ -37,7 +37,6 @@ pub mod file_explorer {
                     .collect();
                 
 
-
                 Ok(DirContent { name, extension, path: path_file})
             })
             .collect();
@@ -98,7 +97,7 @@ pub mod file_explorer {
 
 
     #[tauri::command]
-    pub fn find(base_path: Vec<String>, name: String) -> Result<Vec<DirContent>, String> {
+    pub async fn find(base_path: Vec<String>, name: String) -> Result<Vec<DirContent>, String> {
         let results: Arc<Mutex<Vec<DirContent>>> = Arc::new(Mutex::new(vec![]));
         let dir_entries = get_dir_entries(&base_path)?;
 
@@ -107,7 +106,7 @@ pub mod file_explorer {
         let results_clone = Arc::clone(&results);
         let name_clone = Arc::new(name);
         find_r(entries, name_clone, results_clone, base_path);
-
+        
         let results = Arc::try_unwrap(results)
             .map_err(|_| "Err".to_string())?
             .into_inner()
@@ -136,7 +135,7 @@ pub mod file_explorer {
         
         Ok(
             DirContent {
-                name: name,
+                name,
                 extension: String::from(""),
                 path: path_file
             }
